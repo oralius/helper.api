@@ -1,9 +1,9 @@
 package.path = package.path..';.luarocks/share/lua/5.2/?.lua;.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath..';.luarocks/lib/lua/5.2/?.so'
-bot_token = "Token"
+bot_token = "AAH5ebiEoJFSdWxTU6p_npvHUC85jFra5Eo"
 send_api = "https://api.telegram.org/bot"..bot_token
-BeyondTeam = -1001011351482
-sudo_id = 157059515
+BeyondTeam = -1001132465237
+sudo_id = 108363478
 http = require('socket.http')
 https = require('ssl.https')
 URL = require('socket.url')
@@ -130,13 +130,13 @@ local lang = redis:get(hash)
 keyboard = {}
   keyboard.inline_keyboard = {
    {
-{text= 'Beyond Team Channel' ,url = 'Telegram.Me/BeyondTeam'}
+{text= 'activebots Team Channel' ,url = 'Telegram.Me/activebots'}
 }					
 		}
 		if lang then
-		tkey = '_ابتدا در کانال تیم بیوند عضو شوید و دوباره تلاش کنید_'
+		tkey = '_ابتدا در کانال اکتیوبوت عضو شوید_'
 		else
-		tkey = '_First Join To_ *Beyond Team Channel* _And Try Again_'
+		tkey = '_عضو شوید_ *activebots Channel* _اول باید در کانال_'
 		end
       send_key(msg.chat.id, tkey, keyboard, msg.message_id, "md")
       return
@@ -188,7 +188,7 @@ function create_config( )
 	io.write('\n\27[1;33m>> Input your Telegram ID for set Sudo :\27[0;39;49m')
 	local SUDO = tonumber(io.read())
 if not tostring(SUDO):match('%d+') then
-    SUDO = 157059515
+    SUDO = 108363478
   end
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
@@ -200,30 +200,30 @@ if not tostring(SUDO):match('%d+') then
     "banhammer",
     "fun"
     },
-    sudo_users = {157059515, SUDO},--Sudo users
+    sudo_users = {108363478},--Sudo users
     master_id = SUDO, 
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[*》Beyond Manager V2.0*
-`》An advanced administration bot based on` *BDMessenger*
+    info_text = [[*》helper bot V2.0*
+`》An advanced administration bot based on` *Helper bot*
 
-》[Beyond Manager](https://github.com/BeyondTeam/BDManager)
+》[activebots Manager](https://github.com
 
 *》Admins :*
-*》Founder & Developer :* [SoLiD](Telegram.Me/SoLiD)
-_》Developer & Sponser :_ [MAKAN](Telegram.Me/MAKAN)
-_》Developer :_ [ToOfan](Telegram.Me/ToOfan)
-_》Developer :_ [TheNIS](Telegram.Me/bypa3r)
+*》Founder & Developer :* [silas]
+_》Developer & Sponser :_ [silas](Telegram.Me/oralius)
+_》
+_》
 
 *》Special thanks to :*
-`Beyond Team Members`
+`Members`
 
 *》Our channel :*
-》[BeyondTeam](Telegram.Me/BeyondTeam)
+》[activebots](Telegram.Me/activebots)
 
 *》Our Site :*
-[Beyond Team Forum](beyond-dev.ir)
+[oralius Team Forum]
 ]],
   }
   serialize_to_file(config, './data/config.lua')
