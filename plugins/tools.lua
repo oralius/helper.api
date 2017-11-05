@@ -422,11 +422,11 @@ end
   if is_sudo(msg) then
 	if matches[1]:lower() == "sendfile" and matches[2] and matches[3] then
 		local send_file = "./"..matches[2].."/"..matches[3]
-		sendDocument(msg.to.id, send_file, msg.id, "@BeyondTeam")
+		sendDocument(msg.to.id, send_file, msg.id, "@activebots")
 	end
 	if matches[1]:lower() == "sendplug" and matches[2] then
 	    local plug = "./plugins/"..matches[2]..".lua"
-		sendDocument(msg.to.id, plug, msg.id, "@BeyondTeam")
+		sendDocument(msg.to.id, plug, msg.id, "@activebots")
     end
 	if matches[1]:lower() == "savefile" and matches[2]then
 	local fn = matches[2]:gsub('(.*)/', '')
@@ -541,7 +541,7 @@ local hash = 'AutoLeaveBot'
   if matches[1] == "helptools" and is_admin(msg) then
     local text = [[
 
-_Sudoer And Admins Beyond Bot Help :_
+_Sudoer And Admins Hlper bot :_
 
 *!visudo* `[username|id|reply]`
 _Add Sudo_
@@ -601,7 +601,7 @@ _You can use_ *[!/]* _at the beginning of commands._
 
 local fatext = [[
 
-_راهنمای سودو و مدیران ربات بیوند :_
+_راهنمای سودو و مدیران ربات هلپر بوت:_
 
 *!visudo* `[username|id|reply]`
 _ارتقا به مقام سودو_

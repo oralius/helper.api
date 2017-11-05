@@ -109,7 +109,7 @@ else
 		conditions = conditions .. 'مه 💨'
       end
 	end
-	return temp .. '\n' .. conditions..'\n@BeyondTeam'
+	return temp .. '\n' .. conditions..'\n@activebots'
 end
 --------------------------------
 local function calc(msg, exp)
@@ -121,9 +121,9 @@ local lang = redis:get(hash)
 	text = nil
 	if c == 200 then
  if not lang then
-    text = 'Result = '..b..'\n____________________\n@BeyondTeam'
+    text = 'Result = '..b..'\n____________________\n@activebots'
    else
-    text = 'نتیجه = '..b..'\n____________________\n@BeyondTeam'
+    text = 'نتیجه = '..b..'\n____________________\n@activebots'
  end
 	elseif c == 400 then
 		text = b
@@ -163,7 +163,7 @@ local lang = redis:get(hash)
 		text = text..'\nSunset: '..data.Sunset
 		text = text..'\nMaghrib Azan: '..data.Maghrib
 		text = text..'\nIsha: '..data.Isha
-		text = text.."\n@BeyondTeam"
+		text = text.."\n@activebots"
   else
 		 text = 'شهر: '..city
 		text = text..'\nاذان صبح: '..data.Fajr
@@ -172,7 +172,7 @@ local lang = redis:get(hash)
 		text = text..'\nغروب آفتاب: '..data.Sunset
 		text = text..'\nاذان مغرب: '..data.Maghrib
 		text = text..'\nعشاء : '..data.Isha
-		text = text.."\n@BeyondTeam"
+		text = text.."\n@activebots"
     end
 		return text
 	end
@@ -189,7 +189,7 @@ fileid = msg.reply_to_message.photo[1].file_id
   end
 downloadFile(fileid, "./download_path/"..msg.to.id..".webp")
 sleep(1)
-sendDocument(msg.to.id, "./download_path/"..msg.to.id..".webp", msg.id, "@BeyondTeam")
+sendDocument(msg.to.id, "./download_path/"..msg.to.id..".webp", msg.id, "@activebots")
         end
      end
   end
@@ -199,7 +199,7 @@ if msg.reply_to_message then
 if msg.reply_to_message.sticker then
 downloadFile(msg.reply_to_message.sticker.file_id, "./download_path/"..msg.to.id..".jpg")
 sleep(1)
-sendPhoto(msg.to.id, "./download_path/"..msg.to.id..".jpg", "@BeyondTeam", msg.id)
+sendPhoto(msg.to.id, "./download_path/"..msg.to.id..".jpg", "@activebots", msg.id)
         end
      end
   end
@@ -227,7 +227,7 @@ sendPhoto(msg.to.id, "./download_path/"..msg.to.id..".jpg", "@BeyondTeam", msg.i
 		local jdat = json:decode(url)
 		local url = 'http://latex.codecogs.com/png.download?'..'\\dpi{600}%20\\huge%20\\'..fonts[math.random(#fonts)]..'{{\\color{'..colors[math.random(#colors)]..'}'..jdat.ENtime..'}}'
 		local file = download_to_file(url,'time.webp')
-sendDocument(msg.to.id, file, msg.id, "@BeyondTeam")
+sendDocument(msg.to.id, file, msg.id, "@activebots")
 
 	end
 --------------------------------
@@ -240,7 +240,7 @@ sendDocument(msg.to.id, file, msg.id, "@BeyondTeam")
       else
   local url = "http://tts.baidu.com/text2audio?lan=en&ie=UTF-8&text="..textc
   local file = download_to_file(url,'BD-Manager.mp3')
-sendDocument(msg.to.id, file, msg.id, "@BeyondTeam")
+sendDocument(msg.to.id, file, msg.id, "@activebots")
    end
 end
 
@@ -250,9 +250,9 @@ end
 		local res, url = http.request('http://api.beyond-dev.ir/translate?from=.&to='..to..'&text='..URL.escape(matches[3])..'&simple=json')
 		data = json:decode(res)
   if not lang then
-		return 'Language : '..data.to..'\nTranslation : '..data.translate..'\n____________________\n@BeyondTeam'
+		return 'Language : '..data.to..'\nTranslation : '..data.translate..'\n____________________\n@activebots'
     else
-		return 'زبان : '..data.to..'\nترجمه : '..data.translate..'\n____________________\n@BeyondTeam'
+		return 'زبان : '..data.to..'\nترجمه : '..data.translate..'\n____________________\n@activebots'
       end
 	end
 --------------------------------
@@ -293,7 +293,7 @@ end
 		local url = "https://assets.imgix.net/examples/clouds.jpg?blur=150&w="..w.."&h="..h.."&fit=crop&txt="..eq.."&txtsize="..txtsize.."&txtclr="..txtclr.."&txtalign=middle,center&txtfont=Futura%20Condensed%20Medium&mono=ff6598cc"
 		local receiver = msg.to.id
 		local  file = download_to_file(url,'text.webp')
-sendDocument(msg.to.id, file, msg.id, "@BeyondTeam")
+sendDocument(msg.to.id, file, msg.id, "@activebots")
 	end
 --------------------------------
 	if matches[1]:lower() == 'photo' then
@@ -315,16 +315,16 @@ sendDocument(msg.to.id, file, msg.id, "@BeyondTeam")
 		local url = "https://assets.imgix.net/examples/clouds.jpg?blur=150&w="..w.."&h="..h.."&fit=crop&txt="..eq.."&txtsize="..txtsize.."&txtclr="..txtclr.."&txtalign=middle,center&txtfont=Futura%20Condensed%20Medium&mono=ff6598cc"
 		local receiver = msg.to.id
 		local  file = download_to_file(url,'text.jpg')
-sendPhoto(msg.to.id, file, "@BeyondTeam", msg.id)
+sendPhoto(msg.to.id, file, "@activebots", msg.id)
 	end
 if matches[1] == 'fal' then
 local url , res = http.request('http://api.beyond-dev.ir/fal')
           if res ~= 200 then return "No connection" end
       local jdat = json:decode(url)
      if not lang then
-       fal = "*Poems*:\n"..jdat.poem.."\n\n*Interpretation:*\n"..jdat.mean..'\n\n@BeyondTeam'
+       fal = "*Poems*:\n"..jdat.poem.."\n\n*Interpretation:*\n"..jdat.mean..'\n\n@activebots'
      else
-       fal = "_غزل:_\n"..jdat.poem.."\n\n_تعبیر فال:_\n"..jdat.mean..'\n\n@BeyondTeam'
+       fal = "_غزل:_\n"..jdat.poem.."\n\n_تعبیر فال:_\n"..jdat.mean..'\n\n@activebots'
         end
       return fal
   end
@@ -348,7 +348,7 @@ end
 if matches[1] == "helpfun" then
 if not lang then
 helpfun = [[
-_Beyond Manager Fun Help Commands:_
+_Helper bot Fun :_
 
 *!time*
 _Get time in a sticker_
@@ -400,7 +400,7 @@ _You can use_ *[!/#]* _at the beginning of commands._
 else
 
 helpfun = [[
-_راهنمای فان ربات بیوند منیجر:_
+_راهنمای فان ربات :_
 
 *!time*
 _دریافت ساعت به صورت استیکر_
@@ -450,7 +450,7 @@ _فال حافظ_
 
 موفق باشید ;)]]
 end
-return helpfun.."\n@BeyondTeam"
+return helpfun.."\n@activebots"
 end
 
 end
