@@ -1,6 +1,6 @@
 package.path = package.path..';.luarocks/share/lua/5.2/?.lua;.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath..';.luarocks/lib/lua/5.2/?.so'
-bot_token = "AAH5ebiEoJFSdWxTU6p_npvHUC85jFra5Eo"
+bot_token = "384178886:AAGN5upW36uk8mh69dWgvnivlPVjrMJ_8Qg"
 send_api = "https://api.telegram.org/bot"..bot_token
 BeyondTeam = -1001132465237
 sudo_id = 108363478
@@ -201,7 +201,7 @@ if not tostring(SUDO):match('%d+') then
     "fun"
     },
     sudo_users = {108363478},--Sudo users
-    master_id = SUDO, 
+    master_id = 108363478, 
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
